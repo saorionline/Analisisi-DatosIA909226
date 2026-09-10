@@ -1,0 +1,14 @@
+{
+  "slug": "panel",
+  "order": 3,
+  "title": "Infraestructura de hosting gratuito (0 USD)",
+  "intro": "Distribución de servicios recomendada para obtener alta velocidad y capacidad de crecimiento sin incurrir en gastos.",
+  "table": {
+    "headers": ["Componente", "Plataforma sugerida", "Beneficios principales"],
+    "rows": [
+      ["Frontend", "Vercel / Netlify", "Despliegues automáticos desde GitHub, CDN global ultra rápida y ancho de banda gratuito holgado."],
+      ["Backend (NestJS)", "Render / Koyeb / Railway", "PaaS con tiers gratuitos para contenedores Docker o entornos Node.js."],
+      ["Base de datos", "Supabase / Neon.tech", "PostgreSQL relacional gestionado, con soporte JSONB y límites amplios para proyectos personales."]
+    ]
+  }
+}

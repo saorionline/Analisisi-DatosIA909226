@@ -1,0 +1,11 @@
+{
+  "slug": "arquitectura",
+  "order": 4,
+  "title": "Estructura de proyecto en NestJS",
+  "intro": "Organización del código fuente para aislar cada proyecto y permitir el particionamiento dinámico posterior.",
+  "code": {
+    "caption": "src / árbol de directorios",
+    "language": "text",
+    "content": "src/\n├── app.module.ts\n├── portfolio/\n│   ├── portfolio.module.ts\n│   ├── portfolio.controller.ts\n│   ├── portfolio.service.ts\n│   └── data/\n│       ├── project-01.json\n│       ├── project-02.json\n│       └── ...\n└── showcase-apps/\n    ├── app-one/\n    └── app-two/"
+  }
+}

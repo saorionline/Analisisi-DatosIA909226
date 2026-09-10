@@ -1,0 +1,20 @@
+{
+  "slug": "seccion",
+  "order": 2,
+  "title": "Visión general de la solución",
+  "intro": "Un backend en NestJS con un frontend desacoplado (React / Next.js), administrado dinámicamente mediante archivos JSON o una base de datos relacional, es una estrategia efectiva y escalable para un portafolio profesional.",
+  "bullets": [
+    {
+      "heading": "Escalabilidad y modularidad.",
+      "body": "La inyección de dependencias y la estructura modular de NestJS hacen que la extracción de módulos sea limpia si el portafolio crece hasta requerir microservicios o backends independientes."
+    },
+    {
+      "heading": "Flexibilidad dinámica.",
+      "body": "La administración por archivos JSON o CMS headless ligero permite actualizar hallazgos técnicos, métricas corporativas y documentación sin re-desplegar el frontend."
+    },
+    {
+      "heading": "Control absoluto de costos.",
+      "body": "Permite mantener hasta 12 proyectos complejos documentados de manera gratuita sobre infraestructura en la nube sin costo."
+    }
+  ]
+}

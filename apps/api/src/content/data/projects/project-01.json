@@ -1,0 +1,15 @@
+{
+  "id": "nestshop-ecommerce",
+  "title": "Plataforma E-Commerce Modular",
+  "category": "Software Engineering",
+  "summary": "Arquitectura distribuida con persistencia relacional.",
+  "metrics": [
+    { "label": "Latencia API", "value": "< 45ms" },
+    { "label": "Cobertura de Tests", "value": "92%" }
+  ],
+  "technicalHighlights": [
+    "Patrón DTO para validación de contratos",
+    "Inyección de dependencias modular"
+  ],
+  "contentMarkdown": "# Análisis Técnico\n\nDetalles del diseño de arquitectura..."
+}
