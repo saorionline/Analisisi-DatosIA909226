@@ -1,0 +1,8 @@
+{
+  "slug": "portada-ia",
+  "order": 25,
+  "layout": "cover-hero",
+  "title": "Análisis de datos con IA",
+  "subtitle": "Segundo bloque del portafolio, con tratamiento visual propio.",
+  "media": { "eyebrow": "Bloque II", "align": "full" }
+}

@@ -1,5 +1,5 @@
 import { getSections } from "../lib/api";
-import { SectionBlock } from "../components/sections/SectionBlock";
+import { SectionRenderer } from "../components/sections/registry";
 
 // La API se consulta en cada request: nada se congela en build time,
 // asi que editar un JSON en apps/api se refleja al recargar.
@@ -10,8 +10,10 @@ export default async function HomePage() {
     const sections = await getSections();
     return (
       <main>
+        {/* La pagina ya no decide que componente pinta cada seccion.
+            El campo "layout" del JSON lo declara y registry.tsx lo resuelve. */}
         {sections.map((section) => (
-          <SectionBlock key={section.slug} section={section} />
+          <SectionRenderer key={section.slug} section={section} />
         ))}
       </main>
     );

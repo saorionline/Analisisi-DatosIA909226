@@ -1,19 +1,17 @@
 import { z } from "zod";
 
-// Una "sección" es cada página del documento: portada | seccion | panel | arquitectura
+export const SectionLayoutSchema = z.enum(["document", "cover-hero"]);
+export type SectionLayout = z.infer<typeof SectionLayoutSchema>;
+
 export const SectionSchema = z.object({
-  slug: z.string(),                 // "portada" | "seccion" | "panel" | "arquitectura"
+  slug: z.string(),
   order: z.number().int(),
+  layout: SectionLayoutSchema.default("document"),   // ← nuevo
   title: z.string(),
   subtitle: z.string().optional(),
   intro: z.string().optional(),
   bullets: z
-    .array(
-      z.object({
-        heading: z.string(),
-        body: z.string(),
-      })
-    )
+    .array(z.object({ heading: z.string(), body: z.string() }))
     .optional(),
   table: z
     .object({
@@ -28,6 +26,13 @@ export const SectionSchema = z.object({
       content: z.string(),
     })
     .optional(),
+  media: z
+    .object({
+      image: z.string().optional(),
+      eyebrow: z.string().optional(),
+      align: z.enum(["left", "right", "center", "full"]).default("center"),
+    })
+    .optional(),                                     // ← campos propios de la portada
 });
 
 export type Section = z.infer<typeof SectionSchema>;

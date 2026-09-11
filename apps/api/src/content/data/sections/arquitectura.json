@@ -1,6 +1,6 @@
 {
   "slug": "arquitectura",
-  "order": 4,
+  "order": 40,
   "title": "Estructura de proyecto en NestJS",
   "intro": "Organización del código fuente para aislar cada proyecto y permitir el particionamiento dinámico posterior.",
   "code": {

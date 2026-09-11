@@ -1,6 +1,6 @@
 {
   "slug": "panel",
-  "order": 3,
+  "order": 30,
   "title": "Infraestructura de hosting gratuito (0 USD)",
   "intro": "Distribución de servicios recomendada para obtener alta velocidad y capacidad de crecimiento sin incurrir en gastos.",
   "table": {

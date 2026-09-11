@@ -1,6 +1,6 @@
 {
   "slug": "seccion",
-  "order": 2,
+  "order": 20,
   "title": "Visión general de la solución",
   "intro": "Un backend en NestJS con un frontend desacoplado (React / Next.js), administrado dinámicamente mediante archivos JSON o una base de datos relacional, es una estrategia efectiva y escalable para un portafolio profesional.",
   "bullets": [

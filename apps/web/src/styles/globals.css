@@ -128,3 +128,112 @@ pre {
   color: var(--ink-muted);
 }
 .error code { color: var(--ink); }
+
+/* ============================================================
+   Layout "cover-hero" — portada de bloque.
+   Invierte el esquema del documento (tinta sobre papel) para
+   marcar el arranque de una sección nueva. Se activa desde el
+   JSON con "layout": "cover-hero"; el CSS no sabe de slugs.
+   ============================================================ */
+.cover-hero {
+  position: relative;
+  isolation: isolate;          /* encierra el z-index del backdrop */
+  overflow: hidden;            /* recorta la imagen a las esquinas */
+  background: var(--ink);
+  color: var(--ink-invert);
+  border-radius: 4px;
+  border-top: 3px solid var(--gold-rule);
+  padding: clamp(3rem, 8vw, 5.5rem) clamp(1.5rem, 5vw, 3rem);
+  margin-bottom: 1.5rem;
+}
+
+/* --- imagen de fondo opcional (section.media.image) ------------------- */
+.cover-hero__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.cover-hero__backdrop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.28;               /* el texto manda; la imagen acompaña */
+}
+/* Velo de tinta: garantiza contraste del texto sea cual sea la foto. */
+.cover-hero__backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    var(--ink) 0%,
+    rgba(18, 24, 31, 0.72) 55%,
+    rgba(18, 24, 31, 0.45) 100%
+  );
+}
+
+/* --- contenido -------------------------------------------------------- */
+.cover-hero__inner {
+  max-width: 46rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.cover-hero__eyebrow {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-rule);      /* aquí sí: sobre --ink el oro original rinde 5.4:1 */
+  margin: 0;
+}
+
+.cover-hero__title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5.5vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  margin: 0;
+}
+
+.cover-hero__subtitle {
+  font-family: var(--sans);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.5;
+  color: rgba(244, 241, 233, 0.74);   /* 7.9:1 sobre --ink */
+  margin: 0;
+}
+
+.cover-hero__intro {
+  font-family: var(--sans);
+  font-size: 0.975rem;
+  color: rgba(244, 241, 233, 0.62);
+  margin: 0.5rem 0 0;
+}
+
+/* --- variantes de alineación (section.media.align) -------------------- */
+.cover-hero--left   .cover-hero__inner { margin-inline: 0 auto; text-align: left; }
+.cover-hero--center .cover-hero__inner { margin-inline: auto;   text-align: center; }
+.cover-hero--right  .cover-hero__inner { margin-inline: auto 0; text-align: right; }
+
+/* A sangre: se sale del max-width de <main> y llega a los bordes del viewport.
+   El padding recompone la columna de texto para que no se pegue al borde. */
+.cover-hero--full {
+  border-radius: 0;
+  margin-inline: calc(50% - 50vw);
+  padding-inline: max(1.5rem, calc(50vw - 34rem));
+}
+.cover-hero--full .cover-hero__inner { margin-inline: 0 auto; text-align: left; }
+
+/* 50vw cuenta la barra de scroll, pero el ancho real de la pagina no.
+   Ese desfase (15px en Windows) hace que el bloque a sangre sobresalga
+   ~8px y aparezca scroll horizontal. El clip tiene que ir en <html>:
+   puesto solo en <body> NO llega al viewport y el desplazamiento ocurre
+   igual. clip y no hidden, porque hidden rompe position:sticky. */
+html, body { overflow-x: clip; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .cover-hero { scroll-margin-top: 2rem; }
+}
